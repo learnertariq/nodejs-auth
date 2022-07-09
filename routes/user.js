@@ -25,4 +25,15 @@ router.put("/:id", async (req, res) => {
   // res.header("x-auth-key", token).send(_.pick(user, ["_id"]));
 });
 
+router.delete("/:id", async (req, res) => {
+  let user = await User.findById(mongoose.Types.ObjectId(req.params.id));
+  if (!user) return res.status(400).send("User not found");
+
+  const userBackup = { ...user };
+  await user.delete();
+
+  res.send(userBackup._doc);
+  // res.header("x-auth-key", token).send(_.pick(user, ["_id"]));
+});
+
 module.exports = router;
