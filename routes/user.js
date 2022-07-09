@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { default: mongoose } = require("mongoose");
+const mongoose = require("mongoose");
 const { User } = require("../models/user");
 
 router.get("/:id", async (req, res) => {
@@ -22,7 +22,6 @@ router.put("/:id", async (req, res) => {
 
   await user.save();
   res.send(user);
-  // res.header("x-auth-key", token).send(_.pick(user, ["_id"]));
 });
 
 router.delete("/:id", async (req, res) => {
@@ -33,7 +32,6 @@ router.delete("/:id", async (req, res) => {
   await user.delete();
 
   res.send(userBackup._doc);
-  // res.header("x-auth-key", token).send(_.pick(user, ["_id"]));
 });
 
 module.exports = router;
