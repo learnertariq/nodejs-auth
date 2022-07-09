@@ -9,6 +9,7 @@ const accessHeaders = require("./middlewares/headers");
 //importing routes
 const rootRouter = require("./routes/root");
 const authRouter = require("./routes/auth");
+const userRouter = require("./routes/user");
 
 // creating express app
 const app = express();
@@ -36,6 +37,7 @@ app.use(express.urlencoded({ extended: false }));
 // routes
 app.use("/", rootRouter);
 app.use("/auth", authRouter);
+app.use("/user", userRouter);
 app.use(errorsMiddleware);
 const port = process.env.PORT || 5000;
 app.listen(port, () => console.log(`server is listening on port ${port}`));
