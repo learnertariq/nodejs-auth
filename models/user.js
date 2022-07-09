@@ -12,29 +12,11 @@ const userSchema = new mongoose.Schema({
     minLength: 0,
     maxLength: 100,
   },
-  education: {
+  password: {
     type: String,
+    required: true,
     minLength: 0,
-    maxLength: 200,
-  },
-  location: {
-    type: String,
-    minLength: 0,
-    maxLength: 100,
-  },
-  phone: {
-    type: String,
-    minLength: 0,
-    maxLength: 100,
-  },
-  linkedIn: {
-    type: String,
-    minLength: 0,
-    maxLength: 100,
-  },
-  isAdmin: {
-    type: Boolean,
-    default: false,
+    maxLength: 1000,
   },
 });
 
